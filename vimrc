@@ -175,9 +175,12 @@ autocmd FileType javascript,html,css,xml set sw=2
 autocmd FileType javascript,html,css,xml set ts=2
 autocmd FileType javascript,html,css,xml set sts=2
 autocmd FileType py,pyc set ai
-autocmd FileType py,pyc set sw=8
-autocmd FileType py,pyc set ts=8
-autocmd FileType py,pyc set sts=8
-autocmd FileType py,pyc set expandtab
+autocmd FileType py,pyc set sw=4
+autocmd FileType py,pyc set ts=4
+autocmd FileType py,pyc set sts=4
+autocmd FileType yml,yaml set ai
+autocmd FileType yml,yaml set sw=2
+autocmd FileType yml,yaml set ts=2
+autocmd FileType yml.yaml set sts=2
 set expandtab
 %retab!
