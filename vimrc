@@ -7,6 +7,8 @@ set cursorline
 "显示行数
 set nu	
 
+set splitbelow
+set splitright
 set nocompatible              " required
 filetype off                  " required
 
@@ -23,6 +25,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
+"Plugin 'vim-flake8'
 Plugin 'w0rp/ale' "代码检查工具，vim > 8 ，异步处理 
 Plugin 'https://github.com/bling/vim-airline' "状态栏
 Plugin 'kien/rainbow_parentheses.vim'  "不同颜色匹配不同括号
@@ -64,12 +67,13 @@ au BufNewFile,BufRead *.py
     \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
-    \ set fileformat=unix
+    \ set fileformat=unix|
+    \ %retab!
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+"au BufNewFile,BufRead *.js, *.html, *.css
+"    \ set tabstop=2
+"   \ set softtabstop=2
+"    \ set shiftwidth=2
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -149,9 +153,9 @@ au Syntax * RainbowParenthesesLoadBrace
 
 "Settings of ale
 let g:ale_fix_on_save = 1
- let g:ale_completion_enabled = 1
- let g:ale_sign_column_always = 1
- let g:airline#extensions#ale#enabled = 1
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
 "end of ale
 
 "Setting for syntastic
@@ -164,5 +168,16 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "End of Setting for syntastic
-"
-"add a comment
+
+
+autocmd FileType javascript,html,css,xml set ai
+autocmd FileType javascript,html,css,xml set sw=2
+autocmd FileType javascript,html,css,xml set ts=2
+autocmd FileType javascript,html,css,xml set sts=2
+autocmd FileType py,pyc set ai
+autocmd FileType py,pyc set sw=8
+autocmd FileType py,pyc set ts=8
+autocmd FileType py,pyc set sts=8
+autocmd FileType py,pyc set expandtab
+set expandtab
+%retab!
